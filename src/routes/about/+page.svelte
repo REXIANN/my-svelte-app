@@ -1,26 +1,45 @@
+<script>
+	import Parent from '$components/about/Parent.svelte';
+	import Reactivity from '$components/about/Reactivity.svelte';
+	import Assignment from '$components/about/Assignment.svelte';
+
+	let count = 0;
+</script>
+
 <svelte:head>
 	<title>About</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
+<div>
+	<div>Svlete 가 변수를 사용하는 방법</div>
+	<div>{count}</div>
+	<button
+		on:click={() => {
+			count += 1;
+		}}>증가</button
+	>
+	<button
+		on:click={() => {
+			count -= 1;
+		}}>감소</button
+	>
 </div>
+
+<hr />
+
+<Parent />
+
+<hr />
+
+<Reactivity />
+<hr />
+<Assignment />
+
+<style>
+	hr {
+		margin: 200px 0;
+		width: 100%;
+		border: 2px solid black;
+	}
+</style>
