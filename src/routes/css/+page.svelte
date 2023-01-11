@@ -4,7 +4,7 @@
 	import { fly, fade, slide } from 'svelte/transition';
 	import { backInOut } from 'svelte/easing';
 
-	let visible1: boolean = true;
+	let visible1: boolean = false;
 	let visible2: boolean = false;
 	let visible3: boolean = false;
 

@@ -45,5 +45,10 @@
 	button {
 		width: 200px;
 		padding: 5px;
+		cursor: pointer;
+	}
+
+	div {
+		font-size: 20px;
 	}
 </style>
