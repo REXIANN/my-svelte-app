@@ -34,6 +34,10 @@
 	<br />
 	그리고 CSS 애니메이션은 메인스레드가 아닌 다른 스레드가 생성되어 실행되기 때문에
 	<u>어플리케이션의 실행 속도에 영향을 주지 않습니다</u>.
+	<pre>
+    [vite-plugin-svelte] /src/routes/css/+page.svelte:90:1 Unused CSS selector ".this-is-not-used"
+    [vite-plugin-svelte] ssr compile done.
+  </pre>
 </div>
 
 <h2>여기 귀여운 이모지가 있습니다...</h2>

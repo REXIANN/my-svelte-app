@@ -1,10 +1,4 @@
-import type { PageLoadEvent } from './$types';
+export const prerender = false;
 
-import type { Product } from './types';
-
-export async function load({ fetch }: PageLoadEvent) {
-	const response = await fetch('https://dummyjson.com/products/1');
-	const result = await response.json();
-
-	return result satisfies Product;
-}
+// 다음 줄을 활성화 하면 이 앱은 이제 SPA 처럼 동작합니다.
+export const ssr = true;
