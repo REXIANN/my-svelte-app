@@ -62,6 +62,53 @@ Sveltekit 은 기존의 SPA 방식을 비롯하여 SSR, Svelte Component 등의 
 
 ### 왜 빠르지? 가상 DOM 의 동작원리와 Svelte 의 또 다른 생각
 
+리액트와 같은 많은 SPA 는 가상 DOM 이라는 것을 사용합니다.
+
+가상 DOM 은 쉽게 말해서 진짜가 아니라는 것이죠.
+리액트는 이 가상 DOM 을 만들고, 변경이 된 부분을 찾아서 실제 DOM의 해당 부분에만 업데이트(데이터 변경)를 합니다.
+
+```
+import * as React from 'react'
+
+function App() {
+  const [count, setCount] = React.useState(0);
+
+  function handleClick() {
+    setCount(prev => prev + 1)
+  }
+
+  return (
+    <div className="App">
+      {count}
+      <button onChange={handleChange}>Click!</button>
+    </div>
+  )
+}
+```
+
+리액트에서 업데이트가 일어나는 방식은 다음과 같습니다.
+
+1. `setCount` (또는 기타 다른 작업)가 발동하면 새로운 가상 DOM 을 그린다.
+2. 리액트 엔진이 새로운 가상 DOM 을 그린다.
+3. 이전의 가상 DOM 과 새로운 가상 DOM 을 비교한다(diffing).
+4. 바뀐 부분을 찾아서 실제 DOM 에 업데이트한다. 그리고 이전의 가상 DOM은 버리고 새로운 가상돔을 바라본다.
+
+svelte 팀이 강조하는 것 중의 하나는 "가상 DOM은 느리지 않다" 입니다.
+대신 svelte 팀은 바로 4번으로 갈 수 없을까? 하는 의문을 가지게 됩니다.
+그래서 이러한 결론을 내립니다.
+
+```
+<!-- // React -->
+<button onClick={handleClick}>
+  Clicks: {count}
+</button>
+
+<!-- svelte -->
+if (changed.count) {
+  text.data = `Clicks: ${current.count}`
+}
+```
+
 ## Props and cons
 
 ### Props

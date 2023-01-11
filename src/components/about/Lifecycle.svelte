@@ -18,7 +18,6 @@
 		return fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Bourbon').then(
 			(response) => {
 				const result = response.json();
-				console.log(result);
 				return result;
 			}
 		);
