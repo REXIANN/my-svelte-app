@@ -2,6 +2,14 @@
 	import Counter from '$components/Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import { time } from '../store/mainStore';
+
+	const formatter = new Intl.DateTimeFormat('ko', {
+		hour12: false,
+		hour: 'numeric',
+		minute: '2-digit',
+		second: '2-digit'
+	});
 </script>
 
 <svelte:head>
@@ -24,6 +32,10 @@
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
+
+	<div class="clock">
+		The time is {formatter.format($time)}
+	</div>
 
 	<Counter />
 </section>
@@ -55,5 +67,10 @@
 		height: 100%;
 		top: 0;
 		display: block;
+	}
+
+	.clock {
+		font-size: 20px;
+		font-weight: bold;
 	}
 </style>

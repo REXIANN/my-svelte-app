@@ -1,15 +1,21 @@
-import { writable } from 'svelte/store';
+import { writable, readable } from 'svelte/store';
 
 export type CountSlice = {
-	name: string;
-	age: number;
-	count: number | null;
+	count: number;
 };
 
 const defaultCount: CountSlice = {
-	name: 'kim',
-	age: 32,
 	count: 0
 };
 
 export let count = writable<CountSlice>(defaultCount);
+
+export const time = readable(new Date(), function start(set) {
+	const interval = setInterval(() => {
+		set(new Date());
+	}, 1000);
+
+	return function stop() {
+		clearInterval(interval);
+	};
+});
