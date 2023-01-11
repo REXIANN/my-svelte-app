@@ -3,6 +3,7 @@
 	import Parent from '$components/about/Parent.svelte';
 	import Reactivity from '$components/about/Reactivity.svelte';
 	import Assignment from '$components/about/Assignment.svelte';
+	import Lifecycle from '$components/about/Lifecycle.svelte';
 
 	let count = 0;
 	const increase = () => {
@@ -43,6 +44,8 @@
 <Reactivity />
 <hr />
 <Assignment />
+<hr />
+<Lifecycle />
 
 <style>
 	hr {
