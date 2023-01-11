@@ -2,6 +2,8 @@
 
 @sveltejs/kit 이 1.0.0 버전이 나왔대서 시작해보는 Svelte 공부
 
+https://my-svelte-app-rexiann.vercel.app/
+
 ## Creating a project
 
 initial settings
